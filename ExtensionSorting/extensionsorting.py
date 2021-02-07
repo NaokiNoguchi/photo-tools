@@ -40,5 +40,19 @@ def classify(sorce_path):
                 if ext == "."+value:
                     shutil.move(sorce_path+"/"+file, directory_name)
 
-# if __name__ == '__main__':
+def main():
+    args = sys.argv
+    # 引数がない場合
+    if len(args) < 2:
+        print('error: Arguments are too short')
+        return
+    source_path = args[1]
+    if(not check_directorypath(source_path)):
+        return
+
+    # 仕分けを行う
+    classify(source_path)
+
+if __name__ == '__main__':
+    sys.exit(main())
 
