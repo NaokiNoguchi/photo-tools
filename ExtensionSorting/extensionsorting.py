@@ -7,17 +7,17 @@ import shutil
 import json
 
 # 引数がディレククトリのパスなら返す
-def get_directorypath(sorce_payh):
+def check_directorypath(sorce_path):
+    result = True
     # 引数のパスが存在しない場合
-    if not os.path.exists(sorce_payh):
-        print(sorce_payh + " is not found")
-        return
+    if not os.path.exists(sorce_path):
+        print("error: " + sorce_path + " is not found")
+        result = False
     # 引数のパスがディレクトリではない場合
-    if not os.path.isdir(sorce_payh):
-        print( sorce_payh + " is not directory")
-        return
-    return sorce_payh
+    if not os.path.isdir(sorce_path):
+        print("error: " + sorce_path + " is not directory")
+        result = False
+    return result
 
 # if __name__ == '__main__':
 
- 
